@@ -8,16 +8,16 @@ biz_db:
         - MYSQL_ROOT_PASSWORD=my-secret-pw
 
 biz_ecosystem:
-    image: fiware/business-api-ecosystem
+    image: fiware/bae-test
     ports:
         - "8000:8000"
     links:
         - biz_db
     volumes:
-        - /your/bills/path:/apis/business-ecosystem-charging-backend/src/media/bills
-        - /your/assets/path:/apis/business-ecosystem-charging-backend/src/media/assets
-        - /your/plugins/path:/apis/business-ecosystem-charging-backend/src/plugins
-        - /your/indexes/path:/apis/business-ecosystem-logic-proxy/indexes
+        - /your/bills/path:/apis/bae-charging-backend-test/src/media/bills
+        - /your/assets/path:/apis/bae-charging-backend-test/src/media/assets
+        - /your/plugins/path:/apis/bae-charging-backend-test/src/plugins
+        - /your/indexes/path:/apis/bae-logic-proxy-test/indexes
     environment:
         - MYSQL_ROOT_PASSWORD=my-secret-pw
         - MYSQL_HOST=biz_db

@@ -1,7 +1,7 @@
 import os
 import sys
 
-path = '/apis/business-ecosystem-charging-backend/src'
+path = '/apis/bae-charging-backend-test/src'
 if path not in sys.path:
     sys.path.insert(0, path)
 

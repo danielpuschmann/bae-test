@@ -10,8 +10,8 @@ This installation and administration guide covers the Business API Ecosystem ver
 Any feedback on this document is highly welcomed, including bugs, typos or things you think should be included but aren't.
 Please send them to the "Contact Person" email that appears in the `Catalogue page for this GEi`_. Or create an issue at `GitHub Issues`_
 
-.. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/business-api-ecosystem-biz-ecosystem-ri
-.. _GitHub Issues: https://github.com/FIWARE-TMForum/Business-API-Ecosystem/issues/new
+.. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/bae-test-biz-ecosystem-ri
+.. _GitHub Issues: https://github.com/FIWARE-TMForum/bae-test/issues/new
 
 The current version of the software has been tested under Ubuntu 14.04, Ubuntu 15.10, Ubuntu 16.04, Debian 7, Debian 8,
 and CentOS 7. THESE ARE THEREFORE CONSIDERED AS THE SUPPORTED OPERATING SYSTEMS.
@@ -397,12 +397,12 @@ Finally, the last step is deploying the generated war file in Glassfish ::
 Installing the RSS
 ++++++++++++++++++
 
-The RSS sources can be found in `GitHub <https://github.com/FIWARE-TMForum/business-ecosystem-rss>`__
+The RSS sources can be found in `GitHub <https://github.com/FIWARE-TMForum/bae-rss-test>`__
 
 The first step for installing the RSS component is downloading it and moving to the correct release ::
 
-    $ git clone https://github.com/FIWARE-TMForum/business-ecosystem-rss.git
-    $ cd business-ecosystem-rss
+    $ git clone https://github.com/FIWARE-TMForum/bae-rss-test.git
+    $ cd bae-rss-test
     $ git checkout v5.4.1
 
 Then, the next step is coping, *database.properties* and *oauth.properties* files to its default location at */etc/default/rss* ::
@@ -444,12 +444,12 @@ Finally, the last step is deploying the generated war file in Glassfish ::
 Installing the Charging Backend
 +++++++++++++++++++++++++++++++
 
-The Charging Backend sources can be found in `GitHub <https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend>`__
+The Charging Backend sources can be found in `GitHub <https://github.com/FIWARE-TMForum/bae-charging-backend-test>`__
 
 The first step for installing the charging backend component is downloading it and moving to the correct release ::
 
-    $ git clone https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend.git
-    $ cd business-ecosystem-charging-backend
+    $ git clone https://github.com/FIWARE-TMForum/bae-charging-backend-test.git
+    $ cd bae-charging-backend-test
     $ git checkout v5.4.1
 
 Once the code has been downloaded, it is recommended to create a virtualenv for installing python dependencies (This is not mandatory). ::
@@ -467,12 +467,12 @@ To install python libs, execute the *python-dep-install.sh* script ::
 Installing the Logic Proxy
 ++++++++++++++++++++++++++
 
-The Logic Proxy sources can be found in`GitHub <https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy>`__
+The Logic Proxy sources can be found in`GitHub <https://github.com/FIWARE-TMForum/bae-logic-proxy-test>`__
 
 The first step for installing the logic proxy component is downloading it and moving to the correct release ::
 
-    $ git clone https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy.git
-    $ cd business-ecosystem-logic-proxy
+    $ git clone https://github.com/FIWARE-TMForum/bae-logic-proxy-test.git
+    $ cd bae-logic-proxy-test
     $ git checkout v5.4.1
 
 Once the code has been downloaded, Node dependencies can be installed with npm as follows ::
@@ -1058,7 +1058,7 @@ It should show something similar to the following: ::
     mongodb   1014     1  0 3458593 49996 0 sep08 ?        00:22:30 /usr/bin/mongod --config /etc/mongodb.conf
     mysql     1055     1  0 598728 64884  2 sep08 ?        00:02:21 /usr/sbin/mysqld
     francis+ 15932 27745  0 65187 39668   0 14:53 pts/24   00:00:08 python ./manage.py runserver 0.0.0.0:8006
-    francis+ 15939 15932  1 83472 38968   0 14:53 pts/24   00:00:21 /home/user/business-ecosystem-charging-backend/src/virtenv/bin/python ./manage.py runserver 0.0.0.0:8006
+    francis+ 15939 15932  1 83472 38968   0 14:53 pts/24   00:00:21 /home/user/bae-charging-backend-test/src/virtenv/bin/python ./manage.py runserver 0.0.0.0:8006
     francis+ 16036 15949  0 330473 163556 0 14:54 pts/25   00:00:08 node server.js
     root      1572     1  0 1142607 1314076 3 sep08 ?      00:37:40 /usr/lib/jvm/java-8-oracle/bin/java -cp /opt/biz-ecosystem/glassfish ...
 

@@ -1,6 +1,6 @@
 # Business API Ecosystem Docker Image
 
-Starting on version 5.4.0, you are able to run the [Business API Ecosystem](https://github.com/FIWARE-TMForum/Business-API-Ecosystem) with Docker. The Business API Ecosystem requires an instance of MySQL running. In this regard, you have three possibilities:
+Starting on version 5.4.0, you are able to run the [Business API Ecosystem](https://github.com/FIWARE-TMForum/bae-test) with Docker. The Business API Ecosystem requires an instance of MySQL running. In this regard, you have three possibilities:
 * You can have your own MySQL instance deployed in your machine
 * You can manually run a docker image of MySQL before executing the Business API Ecosystem
 * You can use docker-compose to automatically deploy both components
@@ -37,16 +37,16 @@ biz_db:
         - MYSQL_ROOT_PASSWORD=my-secret-pw
 
 biz_ecosystem:
-    image: fiware/business-api-ecosystem
+    image: fiware/bae-test
     ports:
         - "8000:8000"
     links:
         - biz_db
     volumes:
-        - /your/bills/path:/apis/business-ecosystem-charging-backend/src/media/bills
-        - /your/assets/path:/apis/business-ecosystem-charging-backend/src/media/assets
-        - /your/plugins/path:/apis/business-ecosystem-charging-backend/src/plugins
-        - /your/indexes/path:/apis/business-ecosystem-logic-proxy/indexes
+        - /your/bills/path:/apis/bae-charging-backend-test/src/media/bills
+        - /your/assets/path:/apis/bae-charging-backend-test/src/media/assets
+        - /your/plugins/path:/apis/bae-charging-backend-test/src/plugins
+        - /your/indexes/path:/apis/bae-logic-proxy-test/indexes
     environment:
         - MYSQL_ROOT_PASSWORD=my-secret-pw
         - MYSQL_HOST=biz_db
@@ -82,7 +82,7 @@ sudo docker run \
     -e PAYPAL_CLIENT_ID=your-paypal-client-id \
     -e PAYPAL_CLIENT_SECRET=your-paypal-client-secret \
     -e ADMIN_EMAIL=your@email.com \
-    -p your-port:8000 --link biz_db fiware/business-api-ecosystem
+    -p your-port:8000 --link biz_db fiware/bae-test
 ```
 
 Note in the previous commands, that it is needed to provide some environment variables. In particular:
@@ -108,25 +108,25 @@ email notifications:
 Moreover, the Business API Ecosystem image defines 4 containers intended to persist and share 
 some information. Specifically, the following volumes have been defined:
 
-* **/apis/business-ecosystem-charging-backend/src/media/bills**: This volume is used for saving the generated PDF invoices
-* **/apis/business-ecosystem-charging-backend/src/media/assets**: This volume is used for saving the uploaded digital assets
-* **/apis/business-ecosystem-charging-backend/src/plugins**: This volume is intended for supporting the installation of digital assets plugins (see *Installing Asset Plugins* section)
-* **/apis/business-ecosystem-logic-proxy/indexes**: This volume is used for saving the indexes used for searching and paginating
+* **/apis/bae-charging-backend-test/src/media/bills**: This volume is used for saving the generated PDF invoices
+* **/apis/bae-charging-backend-test/src/media/assets**: This volume is used for saving the uploaded digital assets
+* **/apis/bae-charging-backend-test/src/plugins**: This volume is intended for supporting the installation of digital assets plugins (see *Installing Asset Plugins* section)
+* **/apis/bae-logic-proxy-test/indexes**: This volume is used for saving the indexes used for searching and paginating
 
 ## Build the image
 
-If you have downloaded the [Business API Ecosystem](https://github.com/FIWARE-TMForum/Business-API-Ecosystem) you can 
+If you have downloaded the [Business API Ecosystem](https://github.com/FIWARE-TMForum/bae-test) you can
 build your own image. The end result will be the same, but this way you have a bit more of control of what's happening.
 
 To create the image, just navigate to the `docker` directory and run:
 
-    sudo docker build -t business-api-ecosystem .
+    sudo docker build -t bae-test .
 
 > **Note**
 > If you do not want to have to use `sudo` in this or in the next section follow [these instructions](http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo).
 
 
-The parameter `-t business-api-ecosystem` gives the image a name. This name could be anything, or even include an organization like `-t conwetlab/biz-ecosystem-logic-proxy`. This name is later used to run the container based on the image.
+The parameter `-t bae-test` gives the image a name. This name could be anything, or even include an organization like `-t conwetlab/biz-ecosystem-logic-proxy`. This name is later used to run the container based on the image.
 
 If you want to know more about images and the building process you can find it in [Docker's documentation](https://docs.docker.com/userguide/dockerimages/).
 
@@ -136,7 +136,7 @@ As you may know, the Business API Ecosystem is able to sell different types of d
 by loading asset plugins in its Charging Backend. In this context, it is possible to install
 asset plugins in the current Docker image as follows:
 
-1) Copy the plugin file into the host directory of the volume */apis/business-ecosystem-charging-backend/src/plugins*
+1) Copy the plugin file into the host directory of the volume */apis/bae-charging-backend-test/src/plugins*
 
 2) Enter the running container:
 ```
@@ -145,7 +145,7 @@ docker exec -i -t your-container /bin/bash
 
 3) Go to the installation directory
 ```
-cd /apis/business-ecosystem-charging-backend/src
+cd /apis/bae-charging-backend-test/src
 ```
 
 4) Load the plugin

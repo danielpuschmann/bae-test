@@ -61,18 +61,18 @@ APIS = [{"url": "https://github.com/FIWARE-TMForum/DSPRODUCTCATALOG2.git",
          "name": "usage",
          "resourcename": "jdbc/usagedbv2"}]
 
-rss = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-rss.git",
+rss = {"url": "https://github.com/FIWARE-TMForum/bae-rss-test.git",
        "branch": "v5.4.1",
        "bbdd": "RSS",
        "war": "fiware-rss/target/DSRevenueSharing.war",
        "name": "rss",
        "root": "DSRevenueSharing"}
 
-charg = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend.git",
+charg = {"url": "https://github.com/FIWARE-TMForum/bae-charging-backend-test.git",
          "branch": "v5.4.1",
          "name": "charging"}
 
-proxy = {"url": "https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy.git",
+proxy = {"url": "https://github.com/FIWARE-TMForum/bae-logic-proxy-test.git",
          "branch": "v5.4.1"}
 
 
@@ -118,7 +118,7 @@ def maveninstall():
         apiname = url.split("/")[-1][:-4]
         maven(apiname)
 
-    maven("business-ecosystem-rss", "-DskipTests")
+    maven("bae-rss-test", "-DskipTests")
 
 
 def createtable(name, user, pwd):

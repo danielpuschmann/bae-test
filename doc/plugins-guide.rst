@@ -10,8 +10,8 @@ This plugins guide covers the available plugins (defining digital asset types) f
 Any feedback on this document is highly welcomed, including bugs, typos or things you think should be included but aren't.
 Please send them to the "Contact Person" email that appears in the `Catalogue page for this GEi`_. Or create an issue at `GitHub Issues`_
 
-.. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/business-api-ecosystem-biz-ecosystem-ri
-.. _GitHub Issues: https://github.com/FIWARE-TMForum/Business-API-Ecosystem/issues/new
+.. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/bae-test-biz-ecosystem-ri
+.. _GitHub Issues: https://github.com/FIWARE-TMForum/bae-test/issues/new
 
 -------------------
 WireCloud Component
