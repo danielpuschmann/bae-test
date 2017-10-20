@@ -37,7 +37,7 @@ for i in range(20):
     except:
         continue
 
-cd('business-ecosystem-rss')
+cd('bae-rss-test')
 
 print("\nstarted\n")
 asadmin("deploy", "--force", "false", "--contextroot", rss.get('root'), "--name", rss.get('root'), rss.get('war'))

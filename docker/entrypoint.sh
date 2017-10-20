@@ -86,7 +86,7 @@ function glassfish_related {
 
 function done_mongo {
 
-    cd business-ecosystem-charging-backend/src
+    cd bae-charging-backend-test/src
 
     sed -i "s|PAYPAL_CLIENT_ID = ''|PAYPAL_CLIENT_ID = '$PAYPAL_CLIENT_ID'|g" ./wstore/charging_engine/payment_client/paypal_client.py
 
@@ -123,7 +123,7 @@ function done_mongo {
     echo "Starting charging server"
     service apache2 restart
 
-    cd ../../business-ecosystem-logic-proxy
+    cd ../../bae-logic-proxy-test
 
     sed -i "s|config\.port|'$BIZ_ECOSYS_PORT'|" lib/tmfUtils.js
     python /proxy-entrypoint.py
