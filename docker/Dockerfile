@@ -196,7 +196,7 @@ RUN mv ./target/DSUsageManagement.war ../wars/
 WORKDIR ../
 
 # Compile RSS
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-rss.git
+RUN git clone https://github.com/danielpuschmann/bae-logic-proxy-test.git
 
 WORKDIR business-ecosystem-rss
 
@@ -220,7 +220,7 @@ WORKDIR ../
 RUN apt-get update
 RUN apt-get install -y --fix-missing gcc mongodb wkhtmltopdf xvfb python-dev build-essential libssl-dev libffi-dev apache2 libapache2-mod-wsgi
 
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-charging-backend.git
+RUN git clone https://github.com/danielpuschmann/bae-logic-proxy-test.git
 
 WORKDIR business-ecosystem-charging-backend
 
