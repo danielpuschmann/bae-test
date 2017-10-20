@@ -196,9 +196,9 @@ RUN mv ./target/DSUsageManagement.war ../wars/
 WORKDIR ../
 
 # Compile RSS
-RUN git clone https://github.com/danielpuschmann/bae-logic-proxy-test.git
+RUN git clone https://github.com/danielpuschmann/bae-rss-test.git
 
-WORKDIR business-ecosystem-rss
+WORKDIR bae-rss-test
 
 RUN git checkout v5.4.1
 
@@ -220,9 +220,9 @@ WORKDIR ../
 RUN apt-get update
 RUN apt-get install -y --fix-missing gcc mongodb wkhtmltopdf xvfb python-dev build-essential libssl-dev libffi-dev apache2 libapache2-mod-wsgi
 
-RUN git clone https://github.com/danielpuschmann/bae-logic-proxy-test.git
+RUN git clone https://github.com/danielpuschmann/bae-charging-backend-test.git
 
-WORKDIR business-ecosystem-charging-backend
+WORKDIR bae-charging-backend-test
 
 RUN git checkout v5.4.1
 
@@ -239,9 +239,9 @@ RUN ./python-dep-install.sh
 
 # Create volumes
 VOLUME /data/db
-VOLUME /apis/business-ecosystem-charging-backend/src/media/bills
-VOLUME /apis/business-ecosystem-charging-backend/src/media/assets
-VOLUME /apis/business-ecosystem-charging-backend/src/plugins
+VOLUME /apis/bae-charging-backend-test/src/media/bills
+VOLUME /apis/bae-charging-backend-test/src/media/assets
+VOLUME /apis/bae-charging-backend-test/src/plugins
 
 WORKDIR src
 
@@ -258,7 +258,7 @@ WORKDIR /apis
 
 # Deploy logic proxy
 
-RUN git clone https://github.com/FIWARE-TMForum/business-ecosystem-logic-proxy
+RUN git clone https://github.com/danielpuschmann/bae-logic-proxy-test.git
 
 WORKDIR /
 
@@ -268,12 +268,12 @@ RUN tar -xvf node-v6.9.1-linux-x64.tar.xz
 
 RUN echo 'export PATH=$PATH:/node-v6.9.1-linux-x64/bin' >> ~/.bashrc
 
-WORKDIR /apis/business-ecosystem-logic-proxy
+WORKDIR /apis/bae-logic-proxy-test
 
 RUN git checkout v5.4.1
 
 RUN mkdir indexes
-VOLUME /apis/business-ecosystem-logic-proxy/indexes
+VOLUME /apis/bae-logic-proxy-test/indexes
 
 RUN export PATH=$PATH:/node-v6.9.1-linux-x64/bin; npm install
 
