@@ -219,12 +219,14 @@ WORKDIR ../
 
 RUN apt-get update
 RUN apt-get install -y --fix-missing gcc mongodb wkhtmltopdf xvfb python-dev build-essential libssl-dev libffi-dev apache2 libapache2-mod-wsgi
+RUN apt-get install -y --fix-missing vim zip net-tools
 
 RUN git clone https://github.com/danielpuschmann/bae-charging-backend-test.git
 
 WORKDIR bae-charging-backend-test
 
 RUN git checkout v5.4.1
+#RUN git checkout dp-test
 
 # Create required folders
 RUN mkdir -p /data/db/
